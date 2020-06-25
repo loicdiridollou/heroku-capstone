@@ -1,0 +1,1222 @@
+{
+	"info": {
+		"_postman_id": "b406b84d-502a-4dd8-b9f9-7587b50ecafc",
+		"name": "capstone-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "health-check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ce29fbc2-a31b-4b2c-8ec3-9063d0c6632a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1485c7de-37dd-41dd-92fb-3fa3cd432dc6",
+								"exec": [
+									"pm.test(\"Error code is 401\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.equal(401)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "casting-assistant",
+			"item": [
+				{
+					"name": "Get actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a90815f2-d43b-49a2-8fef-0dbafeddcb0d",
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMTcwNjc2OWQ4MDAxMzI0OTZkYyIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjAzLCJleHAiOjE1OTMxMzM2MDMsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.FTGcHai64PHl9S2OgxaFc--vr-cH11g--b8TOCdSgzSoCeAschb5_el6G9KvFCU7ZpEuxjcrQj5Am0YPBr23_03j_dvC13XH4K-fajXhVTCWeEJKlu15HKI3tzKWEC7bnu1JXR48Mm7RKh2g2ooug0d1dagSTXob9UX96XlQRMPzAPT8E3Om08-UbxiiWJWGY1IT4GpDMrzL5L0XU8hvJC0UoJRzzF3bTsv0zW18x0drlot4TiowtL04BzJy7MTQ5dps7hUxJn0fAfAA9T3lhtA-ivjqHqIND3rj88AhvmCJHrvc2wr_BwCBgXHAzlnraZgb-McurSYCCAAgz3Qaxw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a6844a9a-f2a6-487b-9b75-a089ce41fad7",
+								"exec": [
+									"pm.test(\"Successful GET request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dbe77c91-a9ae-41b3-a27e-c07f38d7b6ae",
+								"exec": [
+									"pm.test(\"Error code is 403\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.equal(403)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMTcwNjc2OWQ4MDAxMzI0OTZkYyIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjAzLCJleHAiOjE1OTMxMzM2MDMsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.FTGcHai64PHl9S2OgxaFc--vr-cH11g--b8TOCdSgzSoCeAschb5_el6G9KvFCU7ZpEuxjcrQj5Am0YPBr23_03j_dvC13XH4K-fajXhVTCWeEJKlu15HKI3tzKWEC7bnu1JXR48Mm7RKh2g2ooug0d1dagSTXob9UX96XlQRMPzAPT8E3Om08-UbxiiWJWGY1IT4GpDMrzL5L0XU8hvJC0UoJRzzF3bTsv0zW18x0drlot4TiowtL04BzJy7MTQ5dps7hUxJn0fAfAA9T3lhtA-ivjqHqIND3rj88AhvmCJHrvc2wr_BwCBgXHAzlnraZgb-McurSYCCAAgz3Qaxw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f526e882-368b-46ee-8b79-fbfe4cb8142a",
+								"exec": [
+									"pm.test(\"Error code is 403\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.equal(403)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMTcwNjc2OWQ4MDAxMzI0OTZkYyIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjAzLCJleHAiOjE1OTMxMzM2MDMsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.FTGcHai64PHl9S2OgxaFc--vr-cH11g--b8TOCdSgzSoCeAschb5_el6G9KvFCU7ZpEuxjcrQj5Am0YPBr23_03j_dvC13XH4K-fajXhVTCWeEJKlu15HKI3tzKWEC7bnu1JXR48Mm7RKh2g2ooug0d1dagSTXob9UX96XlQRMPzAPT8E3Om08-UbxiiWJWGY1IT4GpDMrzL5L0XU8hvJC0UoJRzzF3bTsv0zW18x0drlot4TiowtL04BzJy7MTQ5dps7hUxJn0fAfAA9T3lhtA-ivjqHqIND3rj88AhvmCJHrvc2wr_BwCBgXHAzlnraZgb-McurSYCCAAgz3Qaxw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a6cbd39-62b9-42c8-9d8f-912cc85e39eb",
+								"exec": [
+									"pm.test(\"Error code is 403\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.equal(403)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMTcwNjc2OWQ4MDAxMzI0OTZkYyIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjAzLCJleHAiOjE1OTMxMzM2MDMsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.FTGcHai64PHl9S2OgxaFc--vr-cH11g--b8TOCdSgzSoCeAschb5_el6G9KvFCU7ZpEuxjcrQj5Am0YPBr23_03j_dvC13XH4K-fajXhVTCWeEJKlu15HKI3tzKWEC7bnu1JXR48Mm7RKh2g2ooug0d1dagSTXob9UX96XlQRMPzAPT8E3Om08-UbxiiWJWGY1IT4GpDMrzL5L0XU8hvJC0UoJRzzF3bTsv0zW18x0drlot4TiowtL04BzJy7MTQ5dps7hUxJn0fAfAA9T3lhtA-ivjqHqIND3rj88AhvmCJHrvc2wr_BwCBgXHAzlnraZgb-McurSYCCAAgz3Qaxw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "530ca0dc-5604-4fa6-a361-b8948308666f",
+								"exec": [
+									"pm.test(\"Error code is 403\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.equal(403)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMTcwNjc2OWQ4MDAxMzI0OTZkYyIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjAzLCJleHAiOjE1OTMxMzM2MDMsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.FTGcHai64PHl9S2OgxaFc--vr-cH11g--b8TOCdSgzSoCeAschb5_el6G9KvFCU7ZpEuxjcrQj5Am0YPBr23_03j_dvC13XH4K-fajXhVTCWeEJKlu15HKI3tzKWEC7bnu1JXR48Mm7RKh2g2ooug0d1dagSTXob9UX96XlQRMPzAPT8E3Om08-UbxiiWJWGY1IT4GpDMrzL5L0XU8hvJC0UoJRzzF3bTsv0zW18x0drlot4TiowtL04BzJy7MTQ5dps7hUxJn0fAfAA9T3lhtA-ivjqHqIND3rj88AhvmCJHrvc2wr_BwCBgXHAzlnraZgb-McurSYCCAAgz3Qaxw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "43a0811b-3a86-4984-ab2c-510943d56814",
+								"exec": [
+									"pm.test(\"Error code is 403\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.equal(403)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMTcwNjc2OWQ4MDAxMzI0OTZkYyIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjAzLCJleHAiOjE1OTMxMzM2MDMsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.FTGcHai64PHl9S2OgxaFc--vr-cH11g--b8TOCdSgzSoCeAschb5_el6G9KvFCU7ZpEuxjcrQj5Am0YPBr23_03j_dvC13XH4K-fajXhVTCWeEJKlu15HKI3tzKWEC7bnu1JXR48Mm7RKh2g2ooug0d1dagSTXob9UX96XlQRMPzAPT8E3Om08-UbxiiWJWGY1IT4GpDMrzL5L0XU8hvJC0UoJRzzF3bTsv0zW18x0drlot4TiowtL04BzJy7MTQ5dps7hUxJn0fAfAA9T3lhtA-ivjqHqIND3rj88AhvmCJHrvc2wr_BwCBgXHAzlnraZgb-McurSYCCAAgz3Qaxw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c7b7b0e1-1048-4ea8-837a-f097f7b07007",
+								"exec": [
+									"pm.test(\"Error code is 403\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.equal(403)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMTcwNjc2OWQ4MDAxMzI0OTZkYyIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjAzLCJleHAiOjE1OTMxMzM2MDMsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.FTGcHai64PHl9S2OgxaFc--vr-cH11g--b8TOCdSgzSoCeAschb5_el6G9KvFCU7ZpEuxjcrQj5Am0YPBr23_03j_dvC13XH4K-fajXhVTCWeEJKlu15HKI3tzKWEC7bnu1JXR48Mm7RKh2g2ooug0d1dagSTXob9UX96XlQRMPzAPT8E3Om08-UbxiiWJWGY1IT4GpDMrzL5L0XU8hvJC0UoJRzzF3bTsv0zW18x0drlot4TiowtL04BzJy7MTQ5dps7hUxJn0fAfAA9T3lhtA-ivjqHqIND3rj88AhvmCJHrvc2wr_BwCBgXHAzlnraZgb-McurSYCCAAgz3Qaxw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "casting-director",
+			"item": [
+				{
+					"name": "Get actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc0f12d5-3ad8-4eb0-b450-008b3056e2d5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMWUxYTdjM2M1MDAxOWQ2NDNkMCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjU0LCJleHAiOjE1OTMxMzM2NTQsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiZGVsZXRlOmFjdG9ycyIsImVkaXQ6YWN0b3JzIiwiZWRpdDptb3ZpZXMiLCJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.Ysj5k87IrdrHIss8qumxo7KEJnKreJz-60vYWeViWIddDns7i-a5BWfKCWY8f_qXnyMHyFTBmxibMNN3mzkVrqIXuUuE5pHuPQI6jfXPSDY6_DGeBeG7FFQKputYVwiQZ8Y3WVnkdksvi8YPzxWLIyuLE2AdaoXC_vUQoZJ8wuQMvdlcibz0Id_eNGetP-tIoiMcJjl4e-d0t5wM0_--d04Op-nRDUI0tCk8nTEDwFjZ3_l0LS4cBVf9kz2N0mo3LsJ_Oem--kodx8wSXuNTZsLcCB9m1-lyrwNstNdrhgOqZ9PPzYlnZkW688WvZZpSTdkSZERrW5Us3Im6Fos39Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4e9cf3f4-9ba9-483d-bba2-0b48565e91ca",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMWUxYTdjM2M1MDAxOWQ2NDNkMCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjU0LCJleHAiOjE1OTMxMzM2NTQsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiZGVsZXRlOmFjdG9ycyIsImVkaXQ6YWN0b3JzIiwiZWRpdDptb3ZpZXMiLCJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.Ysj5k87IrdrHIss8qumxo7KEJnKreJz-60vYWeViWIddDns7i-a5BWfKCWY8f_qXnyMHyFTBmxibMNN3mzkVrqIXuUuE5pHuPQI6jfXPSDY6_DGeBeG7FFQKputYVwiQZ8Y3WVnkdksvi8YPzxWLIyuLE2AdaoXC_vUQoZJ8wuQMvdlcibz0Id_eNGetP-tIoiMcJjl4e-d0t5wM0_--d04Op-nRDUI0tCk8nTEDwFjZ3_l0LS4cBVf9kz2N0mo3LsJ_Oem--kodx8wSXuNTZsLcCB9m1-lyrwNstNdrhgOqZ9PPzYlnZkW688WvZZpSTdkSZERrW5Us3Im6Fos39Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f5bd274-6bcb-4e5e-af11-02a48a534d37",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMWUxYTdjM2M1MDAxOWQ2NDNkMCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjU0LCJleHAiOjE1OTMxMzM2NTQsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiZGVsZXRlOmFjdG9ycyIsImVkaXQ6YWN0b3JzIiwiZWRpdDptb3ZpZXMiLCJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.Ysj5k87IrdrHIss8qumxo7KEJnKreJz-60vYWeViWIddDns7i-a5BWfKCWY8f_qXnyMHyFTBmxibMNN3mzkVrqIXuUuE5pHuPQI6jfXPSDY6_DGeBeG7FFQKputYVwiQZ8Y3WVnkdksvi8YPzxWLIyuLE2AdaoXC_vUQoZJ8wuQMvdlcibz0Id_eNGetP-tIoiMcJjl4e-d0t5wM0_--d04Op-nRDUI0tCk8nTEDwFjZ3_l0LS4cBVf9kz2N0mo3LsJ_Oem--kodx8wSXuNTZsLcCB9m1-lyrwNstNdrhgOqZ9PPzYlnZkW688WvZZpSTdkSZERrW5Us3Im6Fos39Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Edited title\",\r\n    \"released_date\": \"Thu, 18 Jun 2020 00:00:00 GMT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f59dca30-1514-4474-9f4c-4d817e0890e1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMWUxYTdjM2M1MDAxOWQ2NDNkMCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjU0LCJleHAiOjE1OTMxMzM2NTQsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiZGVsZXRlOmFjdG9ycyIsImVkaXQ6YWN0b3JzIiwiZWRpdDptb3ZpZXMiLCJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.Ysj5k87IrdrHIss8qumxo7KEJnKreJz-60vYWeViWIddDns7i-a5BWfKCWY8f_qXnyMHyFTBmxibMNN3mzkVrqIXuUuE5pHuPQI6jfXPSDY6_DGeBeG7FFQKputYVwiQZ8Y3WVnkdksvi8YPzxWLIyuLE2AdaoXC_vUQoZJ8wuQMvdlcibz0Id_eNGetP-tIoiMcJjl4e-d0t5wM0_--d04Op-nRDUI0tCk8nTEDwFjZ3_l0LS4cBVf9kz2N0mo3LsJ_Oem--kodx8wSXuNTZsLcCB9m1-lyrwNstNdrhgOqZ9PPzYlnZkW688WvZZpSTdkSZERrW5Us3Im6Fos39Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 35\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f9522b2d-606e-4ab1-aea5-2904619f845c",
+								"exec": [
+									"pm.test(\"Error code is 403\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.equal(403)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMWUxYTdjM2M1MDAxOWQ2NDNkMCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjU0LCJleHAiOjE1OTMxMzM2NTQsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiZGVsZXRlOmFjdG9ycyIsImVkaXQ6YWN0b3JzIiwiZWRpdDptb3ZpZXMiLCJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.Ysj5k87IrdrHIss8qumxo7KEJnKreJz-60vYWeViWIddDns7i-a5BWfKCWY8f_qXnyMHyFTBmxibMNN3mzkVrqIXuUuE5pHuPQI6jfXPSDY6_DGeBeG7FFQKputYVwiQZ8Y3WVnkdksvi8YPzxWLIyuLE2AdaoXC_vUQoZJ8wuQMvdlcibz0Id_eNGetP-tIoiMcJjl4e-d0t5wM0_--d04Op-nRDUI0tCk8nTEDwFjZ3_l0LS4cBVf9kz2N0mo3LsJ_Oem--kodx8wSXuNTZsLcCB9m1-lyrwNstNdrhgOqZ9PPzYlnZkW688WvZZpSTdkSZERrW5Us3Im6Fos39Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "170d7b12-2bd3-4f23-afa9-dbe905b2f396",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0f88450f-f3f9-4a8c-983f-b3d32c3d2436",
+								"exec": [
+									"pm.test(\"Error code is 403\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.error).to.equal(403)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMWUxYTdjM2M1MDAxOWQ2NDNkMCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MjU0LCJleHAiOjE1OTMxMzM2NTQsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiZGVsZXRlOmFjdG9ycyIsImVkaXQ6YWN0b3JzIiwiZWRpdDptb3ZpZXMiLCJyZWFkOmFjdG9ycyIsInJlYWQ6bW92aWVzIl19.Ysj5k87IrdrHIss8qumxo7KEJnKreJz-60vYWeViWIddDns7i-a5BWfKCWY8f_qXnyMHyFTBmxibMNN3mzkVrqIXuUuE5pHuPQI6jfXPSDY6_DGeBeG7FFQKputYVwiQZ8Y3WVnkdksvi8YPzxWLIyuLE2AdaoXC_vUQoZJ8wuQMvdlcibz0Id_eNGetP-tIoiMcJjl4e-d0t5wM0_--d04Op-nRDUI0tCk8nTEDwFjZ3_l0LS4cBVf9kz2N0mo3LsJ_Oem--kodx8wSXuNTZsLcCB9m1-lyrwNstNdrhgOqZ9PPzYlnZkW688WvZZpSTdkSZERrW5Us3Im6Fos39Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9aed2718-493f-47f0-a0ff-8872075c3c52",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 45\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "executive-producer",
+			"item": [
+				{
+					"name": "Patch movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d902a579-26f2-4057-aac7-34c414fe1b8b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMzNjOTFmY2QwMDAxMzkxMTFlNCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MDg1LCJleHAiOjE1OTMxMzM0ODUsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiY3JlYXRlOm1vdmllcyIsImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZWRpdDphY3RvcnMiLCJlZGl0Om1vdmllcyIsInJlYWQ6YWN0b3JzIiwicmVhZDptb3ZpZXMiXX0.cCKBYA1nG1H4Fe5NmOKe9J_jgP52IiljjE8pH0CGSFp-rjArIu5KFQs-Zoi3lTdlvY7-5QpTMqfQ-vsE8k7zrYgnkZ_M7MNB8uJ7f90uZ5Ck5PT3joqcBmiSNXEIvLZ8xeWELTlSVk3Kssl1kj29ppIfah6xNFU9YqWrwm2TS__8Vkt-XlhqxU5rD0Ob5IPDXbMGJrwQlZI8BZK6xLsn2UTV1q1sJ-ju1MjiPKvY8b1wcHpeWtVaTucaocUDFU73VXCK6VZeBrQr6ll6FtDFR7itRkW5ObiBO9q37Bn56vDAJn3yg1t8NUTJbJXMHariRM7PeaZyjlfB3OBfI_vnAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Edited title\",\r\n    \"released_date\": \"Thu, 18 Jun 2020 00:00:00 GMT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "af97c5ac-2ba4-45ab-95c7-dddd123816ff",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMzNjOTFmY2QwMDAxMzkxMTFlNCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MDg1LCJleHAiOjE1OTMxMzM0ODUsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiY3JlYXRlOm1vdmllcyIsImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZWRpdDphY3RvcnMiLCJlZGl0Om1vdmllcyIsInJlYWQ6YWN0b3JzIiwicmVhZDptb3ZpZXMiXX0.cCKBYA1nG1H4Fe5NmOKe9J_jgP52IiljjE8pH0CGSFp-rjArIu5KFQs-Zoi3lTdlvY7-5QpTMqfQ-vsE8k7zrYgnkZ_M7MNB8uJ7f90uZ5Ck5PT3joqcBmiSNXEIvLZ8xeWELTlSVk3Kssl1kj29ppIfah6xNFU9YqWrwm2TS__8Vkt-XlhqxU5rD0Ob5IPDXbMGJrwQlZI8BZK6xLsn2UTV1q1sJ-ju1MjiPKvY8b1wcHpeWtVaTucaocUDFU73VXCK6VZeBrQr6ll6FtDFR7itRkW5ObiBO9q37Bn56vDAJn3yg1t8NUTJbJXMHariRM7PeaZyjlfB3OBfI_vnAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 35\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors/2",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a6f68574-e703-468f-9025-9a6b50373064",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMzNjOTFmY2QwMDAxMzkxMTFlNCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MDg1LCJleHAiOjE1OTMxMzM0ODUsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiY3JlYXRlOm1vdmllcyIsImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZWRpdDphY3RvcnMiLCJlZGl0Om1vdmllcyIsInJlYWQ6YWN0b3JzIiwicmVhZDptb3ZpZXMiXX0.cCKBYA1nG1H4Fe5NmOKe9J_jgP52IiljjE8pH0CGSFp-rjArIu5KFQs-Zoi3lTdlvY7-5QpTMqfQ-vsE8k7zrYgnkZ_M7MNB8uJ7f90uZ5Ck5PT3joqcBmiSNXEIvLZ8xeWELTlSVk3Kssl1kj29ppIfah6xNFU9YqWrwm2TS__8Vkt-XlhqxU5rD0Ob5IPDXbMGJrwQlZI8BZK6xLsn2UTV1q1sJ-ju1MjiPKvY8b1wcHpeWtVaTucaocUDFU73VXCK6VZeBrQr6ll6FtDFR7itRkW5ObiBO9q37Bn56vDAJn3yg1t8NUTJbJXMHariRM7PeaZyjlfB3OBfI_vnAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fa4c1db6-5f12-4b56-a4d5-08eba498136e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMzNjOTFmY2QwMDAxMzkxMTFlNCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MDg1LCJleHAiOjE1OTMxMzM0ODUsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiY3JlYXRlOm1vdmllcyIsImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZWRpdDphY3RvcnMiLCJlZGl0Om1vdmllcyIsInJlYWQ6YWN0b3JzIiwicmVhZDptb3ZpZXMiXX0.cCKBYA1nG1H4Fe5NmOKe9J_jgP52IiljjE8pH0CGSFp-rjArIu5KFQs-Zoi3lTdlvY7-5QpTMqfQ-vsE8k7zrYgnkZ_M7MNB8uJ7f90uZ5Ck5PT3joqcBmiSNXEIvLZ8xeWELTlSVk3Kssl1kj29ppIfah6xNFU9YqWrwm2TS__8Vkt-XlhqxU5rD0Ob5IPDXbMGJrwQlZI8BZK6xLsn2UTV1q1sJ-ju1MjiPKvY8b1wcHpeWtVaTucaocUDFU73VXCK6VZeBrQr6ll6FtDFR7itRkW5ObiBO9q37Bn56vDAJn3yg1t8NUTJbJXMHariRM7PeaZyjlfB3OBfI_vnAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "94a9040b-db5d-4065-96f8-5c7e933e8acc",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMzNjOTFmY2QwMDAxMzkxMTFlNCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MDg1LCJleHAiOjE1OTMxMzM0ODUsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiY3JlYXRlOm1vdmllcyIsImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZWRpdDphY3RvcnMiLCJlZGl0Om1vdmllcyIsInJlYWQ6YWN0b3JzIiwicmVhZDptb3ZpZXMiXX0.cCKBYA1nG1H4Fe5NmOKe9J_jgP52IiljjE8pH0CGSFp-rjArIu5KFQs-Zoi3lTdlvY7-5QpTMqfQ-vsE8k7zrYgnkZ_M7MNB8uJ7f90uZ5Ck5PT3joqcBmiSNXEIvLZ8xeWELTlSVk3Kssl1kj29ppIfah6xNFU9YqWrwm2TS__8Vkt-XlhqxU5rD0Ob5IPDXbMGJrwQlZI8BZK6xLsn2UTV1q1sJ-ju1MjiPKvY8b1wcHpeWtVaTucaocUDFU73VXCK6VZeBrQr6ll6FtDFR7itRkW5ObiBO9q37Bn56vDAJn3yg1t8NUTJbJXMHariRM7PeaZyjlfB3OBfI_vnAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John\",\r\n    \"gender\": \"Male\",\r\n    \"age\": 45\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d649dc0c-119c-4961-bb88-5d58801fdef6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMzNjOTFmY2QwMDAxMzkxMTFlNCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MDg1LCJleHAiOjE1OTMxMzM0ODUsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiY3JlYXRlOm1vdmllcyIsImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZWRpdDphY3RvcnMiLCJlZGl0Om1vdmllcyIsInJlYWQ6YWN0b3JzIiwicmVhZDptb3ZpZXMiXX0.cCKBYA1nG1H4Fe5NmOKe9J_jgP52IiljjE8pH0CGSFp-rjArIu5KFQs-Zoi3lTdlvY7-5QpTMqfQ-vsE8k7zrYgnkZ_M7MNB8uJ7f90uZ5Ck5PT3joqcBmiSNXEIvLZ8xeWELTlSVk3Kssl1kj29ppIfah6xNFU9YqWrwm2TS__8Vkt-XlhqxU5rD0Ob5IPDXbMGJrwQlZI8BZK6xLsn2UTV1q1sJ-ju1MjiPKvY8b1wcHpeWtVaTucaocUDFU73VXCK6VZeBrQr6ll6FtDFR7itRkW5ObiBO9q37Bn56vDAJn3yg1t8NUTJbJXMHariRM7PeaZyjlfB3OBfI_vnAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"James Bond\",\r\n    \"release_date\": \"June, 13 2020\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "00cd8a72-d2ee-42df-88e2-c7f47185f2e3",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMzNjOTFmY2QwMDAxMzkxMTFlNCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MDg1LCJleHAiOjE1OTMxMzM0ODUsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiY3JlYXRlOm1vdmllcyIsImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZWRpdDphY3RvcnMiLCJlZGl0Om1vdmllcyIsInJlYWQ6YWN0b3JzIiwicmVhZDptb3ZpZXMiXX0.cCKBYA1nG1H4Fe5NmOKe9J_jgP52IiljjE8pH0CGSFp-rjArIu5KFQs-Zoi3lTdlvY7-5QpTMqfQ-vsE8k7zrYgnkZ_M7MNB8uJ7f90uZ5Ck5PT3joqcBmiSNXEIvLZ8xeWELTlSVk3Kssl1kj29ppIfah6xNFU9YqWrwm2TS__8Vkt-XlhqxU5rD0Ob5IPDXbMGJrwQlZI8BZK6xLsn2UTV1q1sJ-ju1MjiPKvY8b1wcHpeWtVaTucaocUDFU73VXCK6VZeBrQr6ll6FtDFR7itRkW5ObiBO9q37Bn56vDAJn3yg1t8NUTJbJXMHariRM7PeaZyjlfB3OBfI_vnAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/movies/2",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a20824df-dc9e-494c-8976-0327fcf67f5f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMzNjOTFmY2QwMDAxMzkxMTFlNCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MDg1LCJleHAiOjE1OTMxMzM0ODUsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiY3JlYXRlOm1vdmllcyIsImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZWRpdDphY3RvcnMiLCJlZGl0Om1vdmllcyIsInJlYWQ6YWN0b3JzIiwicmVhZDptb3ZpZXMiXX0.cCKBYA1nG1H4Fe5NmOKe9J_jgP52IiljjE8pH0CGSFp-rjArIu5KFQs-Zoi3lTdlvY7-5QpTMqfQ-vsE8k7zrYgnkZ_M7MNB8uJ7f90uZ5Ck5PT3joqcBmiSNXEIvLZ8xeWELTlSVk3Kssl1kj29ppIfah6xNFU9YqWrwm2TS__8Vkt-XlhqxU5rD0Ob5IPDXbMGJrwQlZI8BZK6xLsn2UTV1q1sJ-ju1MjiPKvY8b1wcHpeWtVaTucaocUDFU73VXCK6VZeBrQr6ll6FtDFR7itRkW5ObiBO9q37Bn56vDAJn3yg1t8NUTJbJXMHariRM7PeaZyjlfB3OBfI_vnAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://ld-udacity.herokuapp.com/actors/2",
+							"protocol": "https",
+							"host": [
+								"ld-udacity",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlYzbDdoM0MxYkkxRi1RdU1JbnVfSCJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktcHJvamVjdHMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjNjMzNjOTFmY2QwMDAxMzkxMTFlNCIsImF1ZCI6ImltYWdlIiwiaWF0IjoxNTkzMDQ3MDg1LCJleHAiOjE1OTMxMzM0ODUsImF6cCI6IklVOGtWckJrUWJ3bXRCTU5JeWdHNVpybkg0Q3JUblRwIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJjcmVhdGU6YWN0b3JzIiwiY3JlYXRlOm1vdmllcyIsImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZWRpdDphY3RvcnMiLCJlZGl0Om1vdmllcyIsInJlYWQ6YWN0b3JzIiwicmVhZDptb3ZpZXMiXX0.cCKBYA1nG1H4Fe5NmOKe9J_jgP52IiljjE8pH0CGSFp-rjArIu5KFQs-Zoi3lTdlvY7-5QpTMqfQ-vsE8k7zrYgnkZ_M7MNB8uJ7f90uZ5Ck5PT3joqcBmiSNXEIvLZ8xeWELTlSVk3Kssl1kj29ppIfah6xNFU9YqWrwm2TS__8Vkt-XlhqxU5rD0Ob5IPDXbMGJrwQlZI8BZK6xLsn2UTV1q1sJ-ju1MjiPKvY8b1wcHpeWtVaTucaocUDFU73VXCK6VZeBrQr6ll6FtDFR7itRkW5ObiBO9q37Bn56vDAJn3yg1t8NUTJbJXMHariRM7PeaZyjlfB3OBfI_vnAA",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}
