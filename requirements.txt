@@ -59,6 +59,6 @@ tabulate==0.8.7
 toml==0.10.1
 urllib3==1.26.5
 wcwidth==0.2.4
-Werkzeug==0.15.6
+Werkzeug==2.2.3
 wrapt==1.11.1
 WTForms==2.3.1
