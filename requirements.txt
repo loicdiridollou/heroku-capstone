@@ -40,7 +40,7 @@ psycopg2==2.8.5
 psycopg2-binary==2.8.2
 py==1.10.0
 pyasn1==0.4.8
-pycryptodome==3.6.6
+pycryptodome==3.19.1
 PyJWT==2.4.0
 pylint==2.5.2
 pyparsing==2.4.7
