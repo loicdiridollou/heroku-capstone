@@ -20,10 +20,10 @@ jobs:
           pip install '.[lint,test]'
       - name: Lint the code
         run: |
-          ruff check lib/
+          ruff check .
       - name: Typecheck the code
         run: |
-          mypy lib/
+          mypy .
       # - name: Test with pytest
       #   run: |
       #     pytest lib -rxXs --cov-report=xml:coverage312.xml --cov lib
