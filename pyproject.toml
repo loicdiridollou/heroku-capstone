@@ -1,0 +1,83 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heroku_capstone"
+version = "0.0.1"
+description = "Capstone project using Heroku"
+authors = [
+    {name = "Loic Diridollou", email = "l.d@outlook.com"},
+]
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+  "flask",
+  "flask-cors",
+  "flask-sqlalchemy",
+  "python-jose",
+  "sqlalchemy",
+]
+
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests"]
+namespaces = false # Disable implicit namespaces
+
+[project.optional-dependencies]
+lint = [
+  "black",
+  "isort",
+  "mypy",
+  "ruff",
+  "types-python-jose",
+  "types-Flask-Cors",
+]
+
+test = [
+  "pytest",
+  "pytest-cov",
+]
+dev = [
+  "heroku_capstone[lint,test]"
+]
+
+# [project.scripts]
+# plttest = "test_repo.scripts.plot_styles:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+ignore = [
+    "E722",
+    "B008",  # function call in defaults
+    "I001",  # import order
+    "PLC1901",  # truthy strings
+]
+
+select = [
+    "E",
+    "F",
+    "W",
+    "B",
+    "I",
+    "A",
+    "PLC",
+    "UP",
+    "D",
+]
+
+pydocstyle.convention = "numpy"
+
+[tool.ruff.lint.per-file-ignores]
+"lib/**/__init__.py" = ["D"]
+
+[tool.isort]
+known_first_party = ["heroku_capstone"]
+profile = "black"
