@@ -1,3 +1,5 @@
+"""Module with all models for the database."""
+
 import os
 from datetime import date
 
@@ -20,6 +22,7 @@ db = SQLAlchemy()
 
 
 def db_setup(app, database_path=database_path):
+    """Set up database."""
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
@@ -28,12 +31,14 @@ def db_setup(app, database_path=database_path):
 
 
 def db_reset():
+    """Reset database."""
     db.drop_all()
     db.create_all()
     db_populate()
 
 
 def db_populate():
+    """Populate database."""
     new_actor = Actor(name="Anne", gender="Female", age=23)
 
     new_movie = Movie(title="Anne first Movie", release_date=date.today())
@@ -49,7 +54,9 @@ def db_populate():
 ########################################
 
 
-class Actor(db.Model):
+class Actor(db.Model):  # type: ignore
+    """Actor class."""
+
     __tablename__ = "actors"
 
     id = Column(Integer, primary_key=True)
@@ -63,17 +70,21 @@ class Actor(db.Model):
         self.age = age
 
     def insert(self):
+        """Insert record in database."""
         db.session.add(self)
         db.session.commit()
 
     def update(self):
+        """Update record in database."""
         db.session.commit()
 
     def delete(self):
+        """Delete record from database."""
         db.session.delete(self)
         db.session.commit()
 
     def format(self):
+        """Format method."""
         return {
             "id": self.id,
             "name": self.name,
@@ -88,7 +99,9 @@ class Actor(db.Model):
 ########################################
 
 
-class Movie(db.Model):
+class Movie(db.Model):  # type: ignore
+    """Movie class."""
+
     __tablename__ = "movies"
 
     id = Column(Integer, primary_key=True)
@@ -101,15 +114,19 @@ class Movie(db.Model):
         self.release_date = release_date
 
     def insert(self):
+        """Insert record in database."""
         db.session.add(self)
         db.session.commit()
 
     def update(self):
+        """Update record in database."""
         db.session.commit()
 
     def delete(self):
+        """Delete record from database."""
         db.session.delete(self)
         db.session.commit()
 
     def format(self):
+        """Format method."""
         return {"id": self.id, "title": self.title, "release_date": self.release_date}
