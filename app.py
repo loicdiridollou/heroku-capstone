@@ -1,3 +1,5 @@
+"""Main file for the app."""
+
 from flask import Flask, abort, jsonify, request
 from flask_cors import CORS
 
@@ -9,6 +11,7 @@ ROWS_PER_PAGE = pagination["example"]
 
 
 def create_app(test_config=None):
+    """Initialize application method."""
     app = Flask(__name__)
     db_setup(app)
     # db_reset()
@@ -16,7 +19,8 @@ def create_app(test_config=None):
     CORS(app)
 
     def paginate_results(request, selection):
-        # Same function as I used in one of the previous submissions to return only X rows per page (cf Trivia API)
+        # Same function as I used in one of the previous submissions to return only X rows per page
+        # (cf Trivia API)
         page = request.args.get("page", 1, type=int)
 
         start = (page - 1) * ROWS_PER_PAGE
@@ -31,6 +35,7 @@ def create_app(test_config=None):
 
     @app.route("/")
     def index_page():
+        """Return index page."""
         return jsonify({"message": "Healthy"})
 
     ########################################
