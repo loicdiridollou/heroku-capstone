@@ -1,3 +1,5 @@
+"""Authorization module."""
+
 import json
 from functools import wraps
 from urllib.request import urlopen
@@ -21,6 +23,8 @@ A standardized way to communicate auth failure modes
 
 
 class AuthError(Exception):
+    """Custom Exception."""
+
     def __init__(self, error, status_code):
         self.error = error
         self.status_code = status_code
@@ -30,6 +34,7 @@ class AuthError(Exception):
 
 
 def get_token_auth_header():
+    """Get token for header."""
     auth = request.headers.get("Authorization", None)
 
     if not auth:
@@ -66,6 +71,7 @@ def get_token_auth_header():
 
 
 def check_permissions(permission, payload):
+    """Ensure permissions are correct."""
     if "permissions" not in payload:
         raise AuthError(
             {"code": "unauthorized", "description": "Permission not included in JWT"},
@@ -81,6 +87,7 @@ def check_permissions(permission, payload):
 
 
 def verify_decode_jwt(token):
+    """Decode json web token."""
     jsonurl = urlopen(f"https://{AUTH0_DOMAIN}/.well-known/jwks.json")
     jwks = json.loads(jsonurl.read())
     unverified_header = jwt.get_unverified_header(token)
@@ -116,7 +123,7 @@ def verify_decode_jwt(token):
         except ExpiredSignatureError:
             raise AuthError(
                 {"code": "token_expired", "description": "Token expired."}, 401
-            )
+            ) from None
 
         # Raise Error if token is claiming wrong audience.
         except JWTClaimsError:
@@ -126,7 +133,7 @@ def verify_decode_jwt(token):
                     "description": "Incorrect claims. Please, check the audience and issuer.",
                 },
                 401,
-            )
+            ) from None
 
         # In all other Error cases, give generic error message
         except Exception:
@@ -136,7 +143,7 @@ def verify_decode_jwt(token):
                     "description": "Unable to parse authentication token.",
                 },
                 400,
-            )
+            ) from None
 
     # If no payload has been returned yet, raise error.
     raise AuthError(
@@ -149,6 +156,8 @@ def verify_decode_jwt(token):
 
 
 def requires_auth(permission=""):
+    """Decode authorization token."""
+
     def requires_auth_decorator(f):
         @wraps(f)
         def wrapper(*args, **kwargs):
